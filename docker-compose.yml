@@ -1,0 +1,18 @@
+version: '3'
+services:
+  nginx:
+    build: ./nginx-docker/
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+      - "8085:22"
+    volumes:
+      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+#  certbot:
+#    image: certbot/certbot
+#    volumes:
+#      - ./data/certbot/conf:/etc/letsencrypt
+#      - ./data/certbot/www:/var/www/certbot
